@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "271224686270",
+    "project_id": "swipeapply-88c1e",
+    "storage_bucket": "swipeapply-88c1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271224686270:android:749d01c20c913fc7d8c0ef",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAn8MsTkB63wnuf3Jd7yXPoNGOWXW4PrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
