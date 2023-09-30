@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/authenticationScreen/login_screen.dart';
 import 'package:flutter_app/controllers/authentication_controller.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'swipeApply',
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }

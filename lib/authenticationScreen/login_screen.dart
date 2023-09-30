@@ -140,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(RegistrationScreen());
+                      Get.to(const RegistrationScreen());
                     },
                     child: const Text(
                       "Register Here",
@@ -161,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // if showLoadingBar becomes true then display... otherwise if it's empty display an empty container
               showLoadingBar == true
-                  ? CircularProgressIndicator(
+                  ? const CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
                     )
                   : Container(),
