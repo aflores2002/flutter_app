@@ -464,7 +464,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     )),
                 child: InkWell(
                   onTap: () async {
-                    if (authenticationController.profileImage != null) {
+                    if (authenticationController.imageFile != null) {
                       // trim removes extra spaces that may be inputted
                       if (nameTextEditingController.text.trim().isNotEmpty &&
                           emailTextEditingController.text.trim().isNotEmpty &&
@@ -488,8 +488,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           interestsTextEditingController.text
                               .trim()
                               .isNotEmpty) {
+                        setState(() {
+                          showLoadingBar = true;
+                        });
+
                         await authenticationController.createNewUserAccount(
-                          authenticationController.profileImage!,
+                          authenticationController.imageProfile!,
                           nameTextEditingController.text.trim(),
                           emailTextEditingController.text.trim(),
                           passwordTextEditingController.text.trim(),
