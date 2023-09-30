@@ -3,6 +3,7 @@ import 'package:flutter_app/authenticationScreen/registration_screen.dart';
 import 'package:flutter_app/widgets/custom_text_field_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:flutter_app/JobFinderScreen/job_finder_screen.dart';
 import 'package:flutter_app/jobMatchScreen/job_match_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -108,9 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Radius.circular(12),
                     )),
                 child: InkWell(
-                  onTap: () {
-                    Get.to(const MatchSreen());
-                  },
+                  onTap: () {},
                   child: const Center(
                     child: Text(
                       "Login",
