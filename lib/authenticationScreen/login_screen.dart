@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // Welcome text
               const Text(
-                "Welcome",
+                "Welcomeeee",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
 
