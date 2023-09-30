@@ -12,7 +12,7 @@ class AuthenticationController extends GetxController {
   static AuthenticationController authController = Get.find();
 
   late Rx<File?> pickedFile;
-  File? get profileImage => pickedFile.value;
+  File? get imageProfile => pickedFile.value;
   XFile? imageFile;
 
   pickImageFileFromGallery() async {

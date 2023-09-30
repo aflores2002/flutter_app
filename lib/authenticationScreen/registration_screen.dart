@@ -160,7 +160,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // PERSONAL INFO
-              const Text(
+              Text(
                 "Personal Info:",
                 style: TextStyle(
                   color: Colors.white,
@@ -338,7 +338,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // Skills Section
-              const Text(
+              Text(
                 "Skills:",
                 style: TextStyle(
                   color: Colors.white,
@@ -371,7 +371,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // Experience Section
-              const Text(
+              Text(
                 "Professional Experience:",
                 style: TextStyle(
                   color: Colors.white,
@@ -422,7 +422,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // Interest Section
-              const Text(
+              Text(
                 "Interests:",
                 style: TextStyle(
                   color: Colors.white,
@@ -464,7 +464,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     )),
                 child: InkWell(
                   onTap: () async {
-                    if (authenticationController.imageFile != null) {
+                    if (authenticationController.imageProfile != null) {
                       // trim removes extra spaces that may be inputted
                       if (nameTextEditingController.text.trim().isNotEmpty &&
                           emailTextEditingController.text.trim().isNotEmpty &&
@@ -573,7 +573,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
               // if showLoadingBar becomes true then display... otherwise if it's empty display an empty container
               showLoadingBar == true
-                  ? const CircularProgressIndicator(
+                  ? CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
                     )
                   : Container(),
