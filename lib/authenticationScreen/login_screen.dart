@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/authenticationScreen/registration_screen.dart';
 import 'package:flutter_app/widgets/custom_text_field_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
@@ -138,7 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(RegistrationScreen());
+                    },
                     child: const Text(
                       "Register Here",
                       style: TextStyle(
