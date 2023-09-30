@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               // space between logo & top of screen
               const SizedBox(
-                height: 90,
+                height: 120,
               ),
 
               // app logo
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // Welcome text
               const Text(
-                "Welcomeeee",
+                "Welcome",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
 
@@ -165,6 +165,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
                     )
                   : Container(),
+
+              // space
+              const SizedBox(
+                height: 16,
+              ),
             ],
           ),
         ),

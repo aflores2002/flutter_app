@@ -85,7 +85,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   backgroundImage: AssetImage(
                     "images/avatar.png",
                   ),
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.grey,
                 ),
               ),
 
@@ -95,6 +95,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // PERSONAL INFO
+              Text(
+                "Personal Info:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 12,
+              ),
+
               // NAME
               SizedBox(
                 // sets text field according to screen size
@@ -155,7 +169,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // sets text field according to screen size
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
-                // allows user to input email
                 child: CustomTextFieldWidget(
                   editingController: ageTextEditingController,
                   labelText: "Age",
@@ -174,7 +187,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // sets text field according to screen size
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
-                // allows user to input email
                 child: CustomTextFieldWidget(
                   editingController: phoneNoTextEditingController,
                   labelText: "Phone",
@@ -193,7 +205,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // sets text field according to screen size
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
-                // allows user to input email
                 child: CustomTextFieldWidget(
                   editingController: cityTextEditingController,
                   labelText: "City",
@@ -212,7 +223,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // sets text field according to screen size
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
-                // allows user to input email
                 child: CustomTextFieldWidget(
                   editingController: countryTextEditingController,
                   labelText: "Country",
@@ -231,7 +241,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // sets text field according to screen size
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
-                // allows user to input email
                 child: CustomTextFieldWidget(
                   editingController: educationLevelTextEditingController,
                   labelText: "Education",
@@ -250,7 +259,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 // sets text field according to screen size
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
-                // allows user to input email
                 child: CustomTextFieldWidget(
                   editingController:
                       lookingForWhatJobPositionTextEditingController,
@@ -263,6 +271,118 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               // space
               const SizedBox(
                 height: 24,
+              ),
+
+              // Skills Section
+              Text(
+                "Skills:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 12,
+              ),
+
+              // SKILLS
+              SizedBox(
+                // sets text field according to screen size
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: skillsTextEditingController,
+                  labelText: "Skills",
+                  iconData: Icons.edit_attributes,
+                  isObscure: false,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 30,
+              ),
+
+              // Experience Section
+              Text(
+                "Professional Experience:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 12,
+              ),
+
+              // PAST WORK EXPERIENCE
+              SizedBox(
+                // sets text field according to screen size
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: workExperienceTextEditingController,
+                  labelText: "Past Work Experience",
+                  iconData: Icons.work_history,
+                  isObscure: false,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 30,
+              ),
+
+              // ORGANIZATIONS
+              SizedBox(
+                // sets text field according to screen size
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: workExperienceTextEditingController,
+                  labelText: "Orginizations/Clubs",
+                  iconData: Icons.collections,
+                  isObscure: false,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 30,
+              ),
+
+              // Interest Section
+              Text(
+                "Interests:",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              // space
+              const SizedBox(
+                height: 12,
+              ),
+
+              // Interests
+              SizedBox(
+                // sets text field according to screen size
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: interestsTextEditingController,
+                  labelText: "Interests:",
+                  iconData: Icons.interests,
+                  isObscure: false,
+                ),
               ),
             ],
           ),
