@@ -35,7 +35,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       TextEditingController();
   TextEditingController organizationsTextEditingController =
       TextEditingController();
-  TextEditingController projectsTextEditingController = TextEditingController();
+  // TextEditingController projectsTextEditingController =
+  // TextEditingController();
 
   // interests ???
   TextEditingController interestsTextEditingController =
@@ -490,6 +491,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         authenticationController.createNewUserAccount(
                           authenticationController.profileImage!,
                           nameTextEditingController.text.trim(),
+                          emailTextEditingController.text.trim(),
+                          passwordTextEditingController.text.trim(),
+                          ageTextEditingController.text.trim(),
+                          phoneNoTextEditingController.text.trim(),
+                          cityTextEditingController.text.trim(),
+                          countryTextEditingController.text.trim(),
+                          educationTextEditingController.text.trim(),
+                          lookingForJobTextEditingController.text.trim(),
+                          skillsTextEditingController.text.trim(),
+                          workExperienceTextEditingController.text.trim(),
+                          organizationsTextEditingController.text.trim(),
+                          interestsTextEditingController.text.trim(),
                         );
                       } else {
                         Get.snackbar("A Field is Empty",
