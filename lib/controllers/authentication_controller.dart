@@ -60,7 +60,7 @@ class AuthenticationController extends GetxController {
       String country,
       String education,
       String lookingForJob,
-      String publishedDateTime,
+      //String publishedDateTime,
       String skills,
       String workExperience,
       String organizations,

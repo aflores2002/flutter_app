@@ -463,7 +463,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       Radius.circular(12),
                     )),
                 child: InkWell(
-                  onTap: () {
+                  onTap: () async {
                     if (authenticationController.profileImage != null) {
                       // trim removes extra spaces that may be inputted
                       if (nameTextEditingController.text.trim().isNotEmpty &&
@@ -488,22 +488,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           interestsTextEditingController.text
                               .trim()
                               .isNotEmpty) {
-                        authenticationController.createNewUserAccount(
-                            authenticationController.profileImage!,
-                            nameTextEditingController.text.trim(),
-                            emailTextEditingController.text.trim(),
-                            passwordTextEditingController.text.trim(),
-                            ageTextEditingController.text.trim(),
-                            phoneNoTextEditingController.text.trim(),
-                            cityTextEditingController.text.trim(),
-                            countryTextEditingController.text.trim(),
-                            educationTextEditingController.text.trim(),
-                            lookingForJobTextEditingController.text.trim(),
-                            skillsTextEditingController.text.trim(),
-                            workExperienceTextEditingController.text.trim(),
-                            organizationsTextEditingController.text.trim(),
-                            interestsTextEditingController.text.trim(),
-                            cityTextEditingController.text.trim());
+                        await authenticationController.createNewUserAccount(
+                          authenticationController.profileImage!,
+                          nameTextEditingController.text.trim(),
+                          emailTextEditingController.text.trim(),
+                          passwordTextEditingController.text.trim(),
+                          ageTextEditingController.text.trim(),
+                          phoneNoTextEditingController.text.trim(),
+                          cityTextEditingController.text.trim(),
+                          countryTextEditingController.text.trim(),
+                          educationTextEditingController.text.trim(),
+                          lookingForJobTextEditingController.text.trim(),
+                          skillsTextEditingController.text.trim(),
+                          workExperienceTextEditingController.text.trim(),
+                          organizationsTextEditingController.text.trim(),
+                          interestsTextEditingController.text.trim(),
+                        );
+                        setState(() {
+                          showLoadingBar = false;
+                        });
                       } else {
                         Get.snackbar("A Field is Empty",
                             "Please complete all fields in form.");
