@@ -25,7 +25,7 @@ class CustomTextFieldWidget extends StatelessWidget {
           prefixIcon: iconData != null
               ? Icon(iconData)
               : Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Image.asset(assetRef.toString()),
                 ),
           labelStyle: const TextStyle(
