@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/controllers/authentication_controller.dart';
+import 'package:get/get.dart';
 
 import '../widgets/custom_text_field_widget.dart';
 
@@ -37,6 +39,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController interestsTextEditingController =
       TextEditingController();
 
+  bool showLoadingBar = false;
+  var authenticationController = AuthenticationController.authController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,10 +55,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
               // Create Account Text
               const Text(
-                "Create Account",
+                "Get started now.",
                 style: TextStyle(
                   fontSize: 22,
-                  color: Colors.grey,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -65,9 +70,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
               // To get Started Now
               const Text(
-                "To get Started Now.",
+                "Create an acount & land your dream job.",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
+                  color: Colors.grey,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -78,15 +84,44 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // selects image circle avatar
-              GestureDetector(
-                onTap: () {},
-                child: const CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage(
-                    "images/avatar.png",
-                  ),
-                  backgroundColor: Colors.grey,
+              const CircleAvatar(
+                radius: 80,
+                backgroundImage: AssetImage(
+                  "images/avatar.png",
                 ),
+                backgroundColor: Colors.grey,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      authenticationController.pickImageFileFromGallery();
+                    },
+                    icon: const Icon(
+                      Icons.image_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                  ),
+
+                  // space
+                  const SizedBox(
+                    width: 10,
+                  ),
+
+                  IconButton(
+                    onPressed: () {
+                      authenticationController.captureImageFromPhoneCamera();
+                    },
+                    icon: const Icon(
+                      Icons.camera_alt_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                  ),
+                ],
               ),
 
               // space
@@ -383,6 +418,84 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   iconData: Icons.interests,
                   isObscure: false,
                 ),
+              ),
+
+              const SizedBox(
+                height: 30,
+              ),
+
+              // Create Account Button
+              Container(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(12),
+                    )),
+                child: InkWell(
+                  onTap: () {},
+                  child: const Center(
+                    child: Text(
+                      "Create Account",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // space between login button and register account button
+              const SizedBox(
+                height: 16,
+              ),
+
+              // already have an account? login here text
+              Row(
+                // centers register link
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Already have an account? ",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Text(
+                      "Login Here",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
+              // space
+              const SizedBox(
+                height: 16,
+              ),
+
+              // if showLoadingBar becomes true then display... otherwise if it's empty display an empty container
+              showLoadingBar == true
+                  ? CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
+                    )
+                  : Container(),
+
+              // space
+              const SizedBox(
+                height: 16,
               ),
             ],
           ),
