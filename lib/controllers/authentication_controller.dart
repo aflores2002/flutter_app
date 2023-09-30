@@ -7,6 +7,7 @@ class AuthenticationController extends GetxController {
 
   late Rx<File?> pickedFile;
   File? get profileImage => pickedFile.value;
+  XFile? imageFile;
 
   pickImageFileFromGallery() async {
     final imageFile =

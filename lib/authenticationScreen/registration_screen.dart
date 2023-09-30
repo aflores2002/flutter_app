@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/authentication_controller.dart';
 import 'package:get/get.dart';
@@ -84,20 +86,42 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // selects image circle avatar
-              const CircleAvatar(
-                radius: 80,
-                backgroundImage: AssetImage(
-                  "images/avatar.png",
-                ),
-                backgroundColor: Colors.grey,
-              ),
+              // if image is not captured displau CircleAvatar
+              // Else display captured image
+              authenticationController.imageFile == null
+                  ? const CircleAvatar(
+                      radius: 80,
+                      backgroundImage: AssetImage(
+                        "images/avatar.png",
+                      ),
+                      backgroundColor: Colors.grey,
+                    )
+                  : Container(
+                      width: 180,
+                      height: 180,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey,
+                          image: DecorationImage(
+                            fit: BoxFit.fitHeight,
+                            image: FileImage(
+                              File(
+                                authenticationController.imageFile!.path,
+                              ),
+                            ),
+                          )),
+                    ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: () {
-                      authenticationController.pickImageFileFromGallery();
+                    onPressed: () async {
+                      await authenticationController.pickImageFileFromGallery();
+
+                      setState(() {
+                        authenticationController.imageFile;
+                      });
                     },
                     icon: const Icon(
                       Icons.image_outlined,
@@ -112,8 +136,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
 
                   IconButton(
-                    onPressed: () {
-                      authenticationController.captureImageFromPhoneCamera();
+                    onPressed: () async {
+                      await authenticationController
+                          .captureImageFromPhoneCamera();
+
+                      setState(() {
+                        authenticationController.imageFile;
+                      });
                     },
                     icon: const Icon(
                       Icons.camera_alt_outlined,
