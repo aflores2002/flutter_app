@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class JobSreen extends StatefulWidget {
+class JobScreen extends StatefulWidget {
   @override
-  const JobSreen({super.key});
+  const JobScreen({super.key});
 
-  _JobSreenState createState() => _JobSreenState();
+  _JobScreenState createState() => _JobScreenState();
 }
 
-class _JobSreenState extends State<JobSreen> {
+class _JobScreenState extends State<JobScreen> {
   String _displayText = 'Hello, Flutter';
 
   // Event handler for a button click
