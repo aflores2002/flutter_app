@@ -1,8 +1,9 @@
 import 'dart:io';
-import 'dart:js_util';
+//import 'dart:js_util';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter_app/homeScreen/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_app/models/person.dart' as personModel;
@@ -51,7 +52,7 @@ class AuthenticationController extends GetxController {
   }
 
   createNewUserAccount(
-      File profileImage,
+      File imageProfile,
       String name,
       String email,
       String password,
@@ -72,16 +73,16 @@ class AuthenticationController extends GetxController {
           .createUserWithEmailAndPassword(email: email, password: password);
 
       // 2. upload image to storage
-      String urlOfDownloadedImage = await uploadImageToStorage(profileImage);
+      String urlOfDownloadedImage = await uploadImageToStorage(imageProfile);
 
       // 3. save user info to firestore database
       personModel.Person personInstance = personModel.Person(
         // personal info
-        profileImage: urlOfDownloadedImage,
+        imageProfile: urlOfDownloadedImage,
         name: name,
         email: email,
         password: password,
-        age: age,
+        age: int.parse(age),
         phoneNo: phoneNo,
         city: city,
         country: country,
@@ -104,6 +105,7 @@ class AuthenticationController extends GetxController {
           "Account Created", "Congratulations, your account has been created.");
     } catch (errorMsg) {
       Get.snackbar("Account Creation Unsuccessful", "Error occured: $errorMsg");
+      Get.to(HomeScreen());
     }
   }
 }
