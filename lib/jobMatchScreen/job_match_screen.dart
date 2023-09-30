@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MatchSreen extends StatefulWidget {
-  @override
-  const MatchSreen({super.key});
+class MatchScreen extends StatefulWidget {
+  const MatchScreen({super.key});
 
   @override
-  _MatchSreenState createState() => _MatchSreenState();
+  State<MatchScreen> createState() => _MatchScreenState();
 }
 
-class _MatchSreenState extends State<MatchSreen> {
+class _MatchScreenState extends State<MatchScreen> {
   String _displayText = 'Hello, Flutter';
 
   // Event handler for a button click

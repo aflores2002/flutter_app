@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class JobScreen extends StatefulWidget {
-  @override
   const JobScreen({super.key});
 
   @override
-  _JobScreenState createState() => _JobScreenState();
+  State<JobScreen> createState() => _JobScreenState();
 }
 
 class _JobScreenState extends State<JobScreen> {
@@ -22,7 +21,7 @@ class _JobScreenState extends State<JobScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Flutter Screen'),
+        title: const Text('Job Screen'),
       ),
       body: Center(
         child: Column(
