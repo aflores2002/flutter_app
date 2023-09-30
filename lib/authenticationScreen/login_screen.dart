@@ -3,6 +3,7 @@ import 'package:flutter_app/authenticationScreen/registration_screen.dart';
 import 'package:flutter_app/widgets/custom_text_field_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:flutter_app/JobFinderScreen/job_finder_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -107,7 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Radius.circular(12),
                     )),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(const JobScreen());
+                  },
                   child: const Center(
                     child: Text(
                       "Login",
@@ -140,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(RegistrationScreen());
+                      Get.to(const RegistrationScreen());
                     },
                     child: const Text(
                       "Register Here",
@@ -161,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               // if showLoadingBar becomes true then display... otherwise if it's empty display an empty container
               showLoadingBar == true
-                  ? CircularProgressIndicator(
+                  ? const CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
                     )
                   : Container(),
