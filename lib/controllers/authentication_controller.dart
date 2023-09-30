@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:js_util';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
@@ -93,6 +94,14 @@ class AuthenticationController extends GetxController {
 
         interests: interests,
       );
+
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .set(personInstance.toJson());
+
+      Get.snackbar(
+          "Account Created", "Congratulations, your account has been created.");
     } catch (errorMsg) {
       Get.snackbar("Account Creation Unsuccessful", "Error occured: $errorMsg");
     }
