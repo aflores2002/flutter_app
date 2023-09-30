@@ -22,9 +22,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController phoneNoTextEditingController = TextEditingController();
   TextEditingController cityTextEditingController = TextEditingController();
   TextEditingController countryTextEditingController = TextEditingController();
-  TextEditingController educationLevelTextEditingController =
+  TextEditingController educationTextEditingController =
       TextEditingController();
-  TextEditingController lookingForWhatJobPositionTextEditingController =
+  TextEditingController lookingForJobTextEditingController =
       TextEditingController();
 
   // skills ???
@@ -306,7 +306,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: educationLevelTextEditingController,
+                  editingController: educationTextEditingController,
                   labelText: "Education",
                   iconData: Icons.text_fields,
                   isObscure: false,
@@ -324,8 +324,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController:
-                      lookingForWhatJobPositionTextEditingController,
+                  editingController: lookingForJobTextEditingController,
                   labelText: "Job Positions You are Looking For",
                   iconData: Icons.list,
                   isObscure: false,
@@ -463,7 +462,44 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       Radius.circular(12),
                     )),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    if (authenticationController.profileImage != null) {
+                      // trim removes extra spaces that may be inputted
+                      if (nameTextEditingController.text.trim().isNotEmpty &&
+                          emailTextEditingController.text.trim().isNotEmpty &&
+                          passwordTextEditingController.text
+                              .trim()
+                              .isNotEmpty &&
+                          ageTextEditingController.text.trim().isNotEmpty &&
+                          phoneNoTextEditingController.text.trim().isNotEmpty &&
+                          cityTextEditingController.text.trim().isNotEmpty &&
+                          countryTextEditingController.text.trim().isNotEmpty &&
+                          lookingForJobTextEditingController.text
+                              .trim()
+                              .isNotEmpty &&
+                          skillsTextEditingController.text.trim().isNotEmpty &&
+                          workExperienceTextEditingController.text
+                              .trim()
+                              .isNotEmpty &&
+                          organizationsTextEditingController.text
+                              .trim()
+                              .isNotEmpty &&
+                          interestsTextEditingController.text
+                              .trim()
+                              .isNotEmpty) {
+                        authenticationController.createNewUserAccount(
+                          authenticationController.profileImage!,
+                          nameTextEditingController.text.trim(),
+                        );
+                      } else {
+                        Get.snackbar("A Field is Empty",
+                            "Please complete all fields in form.");
+                      }
+                    } else {
+                      Get.snackbar("Image File Missing",
+                          "Please pick image from gallery or capture with Camera.");
+                    }
+                  },
                   child: const Center(
                     child: Text(
                       "Create Account",
