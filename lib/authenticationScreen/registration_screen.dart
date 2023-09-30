@@ -85,7 +85,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   backgroundImage: AssetImage(
                     "images/avatar.png",
                   ),
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.white,
                 ),
               ),
 
