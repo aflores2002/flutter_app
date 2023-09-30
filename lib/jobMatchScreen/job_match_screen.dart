@@ -4,6 +4,7 @@ class MatchSreen extends StatefulWidget {
   @override
   const MatchSreen({super.key});
 
+  @override
   _MatchSreenState createState() => _MatchSreenState();
 }
 
@@ -21,7 +22,7 @@ class _MatchSreenState extends State<MatchSreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Flutter Screen'),
+        title: const Text('My Flutter Screen'),
       ),
       body: Center(
         child: Column(
@@ -29,12 +30,12 @@ class _MatchSreenState extends State<MatchSreen> {
           children: <Widget>[
             Text(
               _displayText,
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _changeText,
-              child: Text('Change Text'),
+              child: const Text('Change Text'),
             ),
           ],
         ),
