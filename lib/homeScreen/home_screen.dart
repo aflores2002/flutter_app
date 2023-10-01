@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/tabScreens/swipping_screen.dart';
-import 'package:flutter_app/tabScreens/user_details_screen.dart';
+import 'package:flutter_app/JobFinderScreen/job_finder_screen.dart';
 import 'package:flutter_app/mentor/mentor_screen.dart';
+import 'package:flutter_app/tabScreens/swipping_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,9 +13,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int screenIndex = 0;
   List tabScreensList = [
-    const SwipingScreen(),
+    SwipingScreen(),
     const MentorScreen(),
-    const UserDetailsScreen(),
+    const JobsScreen(),
   ];
 
   @override
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // mentor screen
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.remove_red_eye,
+                Icons.people,
                 size: 30,
               ),
               label: ""),
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // user detail button
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.person,
+                Icons.list,
                 size: 30,
               ),
               label: ""),

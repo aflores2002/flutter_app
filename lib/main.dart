@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/authenticationScreen/login_screen.dart';
 import 'package:flutter_app/controllers/authentication_controller.dart';
-import 'package:flutter_app/JobFinderScreen/job_finder_screen.dart';
 import 'package:get/get.dart';
 
 void main() async {
