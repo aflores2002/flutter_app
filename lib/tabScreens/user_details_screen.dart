@@ -31,9 +31,9 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
           ),
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Text(
-          "Welcome",
+          "User Details",
           style: TextStyle(
             color: Colors.green,
             fontSize: 20,

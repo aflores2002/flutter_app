@@ -160,7 +160,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // PERSONAL INFO
-              Text(
+              const Text(
                 "Personal Info:",
                 style: TextStyle(
                   color: Colors.white,
@@ -338,7 +338,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // Skills Section
-              Text(
+              const Text(
                 "Skills:",
                 style: TextStyle(
                   color: Colors.white,
@@ -371,7 +371,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // Experience Section
-              Text(
+              const Text(
                 "Professional Experience:",
                 style: TextStyle(
                   color: Colors.white,
@@ -422,7 +422,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               // Interest Section
-              Text(
+              const Text(
                 "Interests:",
                 style: TextStyle(
                   color: Colors.white,
@@ -561,7 +561,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
               // if showLoadingBar becomes true then display... otherwise if it's empty display an empty container
               showLoadingBar == true
-                  ? CircularProgressIndicator(
+                  ? const CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
                     )
                   : Container(),

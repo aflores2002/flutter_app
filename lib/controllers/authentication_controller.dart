@@ -104,7 +104,7 @@ class AuthenticationController extends GetxController {
 
       Get.snackbar(
           "Account Created", "Congratulations, your account has been created.");
-      Get.to(HomeScreen());
+      Get.to(const HomeScreen());
     } catch (errorMsg) {
       Get.snackbar("Account Creation Unsuccessful", "Error occured: $errorMsg");
     }
@@ -117,7 +117,7 @@ class AuthenticationController extends GetxController {
         password: passwordUser,
       );
       Get.snackbar("Login Successful", "you have successfully logged in.");
-      Get.to(HomeScreen());
+      Get.to(const HomeScreen());
     } catch (errorMsg) {
       Get.snackbar("Login Unsuccessful", "Error occured: $errorMsg");
     }

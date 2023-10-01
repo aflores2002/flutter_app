@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/tabScreens/swipping_screen.dart';
 import 'package:flutter_app/tabScreens/user_details_screen.dart';
-import 'package:flutter_app/tabScreens/view_sent_view_received_screen.dart';
+import 'package:flutter_app/mentor/mentor_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,9 +13,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int screenIndex = 0;
   List tabScreensList = [
-    SwippingScreen(),
-    ViewSentViewReceivedScreen(),
-    UserDetailsScreen(),
+    const SwipingScreen(),
+    const MentorScreen(),
+    const UserDetailsScreen(),
   ];
 
   @override
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               label: ""),
 
-          // view sent view received button
+          // mentor screen
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.remove_red_eye,

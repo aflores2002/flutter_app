@@ -15,7 +15,7 @@ class _ViewSentViewReceivedScreenState
     return const Scaffold(
       body: Center(
         child: Text(
-          "Welcome",
+          "View Sent & View Received",
           style: TextStyle(
             color: Colors.green,
             fontSize: 20,
