@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/authenticationScreen/registration_screen.dart';
+import 'package:flutter_app/controllers/authentication_controller.dart';
 import 'package:flutter_app/widgets/custom_text_field_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
@@ -15,6 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   bool showLoadingBar = false;
+  var controllerAuth = AuthenticationController.authController;
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +109,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       Radius.circular(12),
                     )),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () async {
+                    if (emailTextEditingController.text.trim().isNotEmpty &&
+                        passwordTextEditingController.text.trim().isNotEmpty) {
+                      setState(() {
+                        showLoadingBar = true;
+                      });
+
+                      await controllerAuth.loginUser(
+                          emailTextEditingController.text.trim(),
+                          passwordTextEditingController.text.trim());
+
+                      setState(() {
+                        showLoadingBar = false;
+                      });
+                    } else {
+                      Get.snackbar("Email or Password is Missing or Incorrect",
+                          "Please fill all fields");
+                    }
+                  },
                   child: const Center(
                     child: Text(
                       "Login",

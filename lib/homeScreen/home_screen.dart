@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/tabScreens/swipping_screen.dart';
+import 'package:flutter_app/tabScreens/user_details_screen.dart';
+import 'package:flutter_app/tabScreens/view_sent_view_received_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,18 +11,54 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int screenIndex = 0;
+  List tabScreensList = [
+    SwippingScreen(),
+    ViewSentViewReceivedScreen(),
+    UserDetailsScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          "Welcome",
-          style: TextStyle(
-            color: Colors.green,
-            fontSize: 20,
-          ),
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (indexNumber) {
+          setState(() {
+            screenIndex = indexNumber;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white12,
+        currentIndex: screenIndex,
+        items: const [
+          // swipping screen
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 30,
+              ),
+              label: ""),
+
+          // view sent view received button
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.remove_red_eye,
+                size: 30,
+              ),
+              label: ""),
+
+          // user detail button
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                size: 30,
+              ),
+              label: ""),
+        ],
       ),
+      body: tabScreensList[screenIndex],
     );
   }
 }
