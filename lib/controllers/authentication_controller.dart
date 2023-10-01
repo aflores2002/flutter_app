@@ -2,7 +2,7 @@ import 'dart:io';
 //import 'dart:js_util';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+//import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_app/homeScreen/home_screen.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -15,7 +15,7 @@ class AuthenticationController extends GetxController {
   File? get imageProfile => pickedFile.value;
   XFile? imageFile;
 
-  pickImageFileFromGallery() async {
+  /*pickImageFileFromGallery() async {
     final imageFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
 
@@ -37,7 +37,7 @@ class AuthenticationController extends GetxController {
     pickedFile = Rx<File?>(File(imageFile!.path));
   }
 
-  Future<String> uploadImageToStorage(File imageFile) async {
+    Future<String> uploadImageToStorage(File imageFile) async {
     Reference referenceStorage = FirebaseStorage.instance
         .ref()
         .child("Profile Images")
@@ -50,9 +50,10 @@ class AuthenticationController extends GetxController {
 
     return downloadUrlOfImage;
   }
+  */
 
   createNewUserAccount(
-      File imageProfile,
+      //File imageProfile,
       String name,
       String email,
       String password,
@@ -73,12 +74,12 @@ class AuthenticationController extends GetxController {
           .createUserWithEmailAndPassword(email: email, password: password);
 
       // 2. upload image to storage
-      String urlOfDownloadedImage = await uploadImageToStorage(imageProfile);
+      //String urlOfDownloadedImage = await uploadImageToStorage(imageProfile);
 
       // 3. save user info to firestore database
       personModel.Person personInstance = personModel.Person(
-        // personal info
-        imageProfile: urlOfDownloadedImage,
+        //personal info
+        //imageProfile: urlOfDownloadedImage,
         name: name,
         email: email,
         password: password,
@@ -103,9 +104,9 @@ class AuthenticationController extends GetxController {
 
       Get.snackbar(
           "Account Created", "Congratulations, your account has been created.");
+      Get.to(HomeScreen());
     } catch (errorMsg) {
       Get.snackbar("Account Creation Unsuccessful", "Error occured: $errorMsg");
-      Get.to(HomeScreen());
     }
   }
 }

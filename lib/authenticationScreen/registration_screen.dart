@@ -113,7 +113,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           )),
                     ),
 
-              Row(
+              /* Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
@@ -152,7 +152,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
                   ),
                 ],
-              ),
+              ), */
 
               // space
               const SizedBox(
@@ -409,7 +409,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: workExperienceTextEditingController,
+                  editingController: organizationsTextEditingController,
                   labelText: "Orginizations/Clubs",
                   iconData: Icons.collections,
                   isObscure: false,
@@ -464,60 +464,48 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     )),
                 child: InkWell(
                   onTap: () async {
-                    if (authenticationController.imageProfile != null) {
-                      // trim removes extra spaces that may be inputted
-                      if (nameTextEditingController.text.trim().isNotEmpty &&
-                          emailTextEditingController.text.trim().isNotEmpty &&
-                          passwordTextEditingController.text
-                              .trim()
-                              .isNotEmpty &&
-                          ageTextEditingController.text.trim().isNotEmpty &&
-                          phoneNoTextEditingController.text.trim().isNotEmpty &&
-                          cityTextEditingController.text.trim().isNotEmpty &&
-                          countryTextEditingController.text.trim().isNotEmpty &&
-                          lookingForJobTextEditingController.text
-                              .trim()
-                              .isNotEmpty &&
-                          skillsTextEditingController.text.trim().isNotEmpty &&
-                          workExperienceTextEditingController.text
-                              .trim()
-                              .isNotEmpty &&
-                          organizationsTextEditingController.text
-                              .trim()
-                              .isNotEmpty &&
-                          interestsTextEditingController.text
-                              .trim()
-                              .isNotEmpty) {
-                        setState(() {
-                          showLoadingBar = true;
-                        });
-
-                        await authenticationController.createNewUserAccount(
-                          authenticationController.imageProfile!,
-                          nameTextEditingController.text.trim(),
-                          emailTextEditingController.text.trim(),
-                          passwordTextEditingController.text.trim(),
-                          ageTextEditingController.text.trim(),
-                          phoneNoTextEditingController.text.trim(),
-                          cityTextEditingController.text.trim(),
-                          countryTextEditingController.text.trim(),
-                          educationTextEditingController.text.trim(),
-                          lookingForJobTextEditingController.text.trim(),
-                          skillsTextEditingController.text.trim(),
-                          workExperienceTextEditingController.text.trim(),
-                          organizationsTextEditingController.text.trim(),
-                          interestsTextEditingController.text.trim(),
-                        );
-                        setState(() {
-                          showLoadingBar = false;
-                        });
-                      } else {
-                        Get.snackbar("A Field is Empty",
-                            "Please complete all fields in form.");
-                      }
+                    // trim removes extra spaces that may be inputted
+                    //if (authenticationController != null) {}
+                    if (nameTextEditingController.text.trim().isNotEmpty &&
+                        emailTextEditingController.text.trim().isNotEmpty &&
+                        passwordTextEditingController.text.trim().isNotEmpty &&
+                        ageTextEditingController.text.trim().isNotEmpty &&
+                        phoneNoTextEditingController.text.trim().isNotEmpty &&
+                        cityTextEditingController.text.trim().isNotEmpty &&
+                        countryTextEditingController.text.trim().isNotEmpty &&
+                        lookingForJobTextEditingController.text
+                            .trim()
+                            .isNotEmpty &&
+                        skillsTextEditingController.text.trim().isNotEmpty &&
+                        workExperienceTextEditingController.text
+                            .trim()
+                            .isNotEmpty &&
+                        organizationsTextEditingController.text
+                            .trim()
+                            .isNotEmpty &&
+                        interestsTextEditingController.text.trim().isNotEmpty) {
+                      await authenticationController.createNewUserAccount(
+                        //authenticationController.imageProfile!,
+                        nameTextEditingController.text.trim(),
+                        emailTextEditingController.text.trim(),
+                        passwordTextEditingController.text.trim(),
+                        ageTextEditingController.text.trim(),
+                        phoneNoTextEditingController.text.trim(),
+                        cityTextEditingController.text.trim(),
+                        countryTextEditingController.text.trim(),
+                        educationTextEditingController.text.trim(),
+                        lookingForJobTextEditingController.text.trim(),
+                        skillsTextEditingController.text.trim(),
+                        workExperienceTextEditingController.text.trim(),
+                        organizationsTextEditingController.text.trim(),
+                        interestsTextEditingController.text.trim(),
+                      );
+                      setState(() {
+                        showLoadingBar = false;
+                      });
                     } else {
-                      Get.snackbar("Image File Missing",
-                          "Please pick image from gallery or capture with Camera.");
+                      Get.snackbar("A Field is Empty",
+                          "Please complete all fields in form.");
                     }
                   },
                   child: const Center(
