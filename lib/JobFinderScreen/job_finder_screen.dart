@@ -23,11 +23,11 @@ class _JobsScreenState extends State<JobsScreen> {
           itemBuilder: (context, index) {
             final job = jobs[index];
             final company = job['company_name'];
-            final job_title = job['title'];
-            final job_location = job['location'];
+            final jobTitle = job['title'];
+            final jobLocation = job['location'];
             //final apply_link = job['related_links']['link'];
 
-            final miniSubtitle = '$job_title, $job_location';
+            final miniSubtitle = '$jobTitle, $jobLocation';
             //final description = job['description'];
             //final imageUrl = job['picture']['thumbnail'];
 
