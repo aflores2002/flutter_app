@@ -11,44 +11,98 @@ class JobsScreen extends StatefulWidget {
 
 class _JobsScreenState extends State<JobsScreen> {
   List<dynamic> jobs = []; // Define a list to hold user data
+  String title = '';
+  String location = '';
+  String level = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('THESE ARE JOBS'),
+        title: const Text('Find the perfect jobs for you!'),
       ),
-      body: ListView.builder(
-          itemCount: jobs.length,
-          itemBuilder: (context, index) {
-            final job = jobs[index];
-            final company = job['company_name'];
-            final job_title = job['title'];
-            final job_location = job['location'];
-            //final apply_link = job['related_links']['link'];
-
-            final miniSubtitle = '$job_title, $job_location';
-            //final description = job['description'];
-            //final imageUrl = job['picture']['thumbnail'];
-
-            return ListTile(
-              leading: CircleAvatar(
-                child: Text('${index + 1}'),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: const InputDecoration(
+                labelText: 'Job Title',
+                hintText: 'Enter a job title',
+                // You can customize other properties of the TextField's appearance here.
               ),
-              title: Text(company),
-              subtitle: Text(miniSubtitle),
-              //subtitle: Text(email),
-            );
-          }),
+              onChanged: (value) {
+                title = value;
+                print('User entered: $value');
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: const InputDecoration(
+                labelText: 'Job Location',
+                hintText: 'Where do you want to work?',
+                // You can customize other properties of the TextField's appearance here.
+              ),
+              onChanged: (value) {
+                location = value;
+                print('User entered: $value');
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: const InputDecoration(
+                labelText: 'Job Level',
+                hintText: 'What level of job are you looking for?',
+                // You can customize other properties of the TextField's appearance here.
+              ),
+              onChanged: (value) {
+                level = value;
+                print('User entered: $value');
+              },
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: jobs.length,
+              itemBuilder: (context, index) {
+                final job = jobs[index];
+                final company = job['company_name'];
+                final jobTitle = job['title'];
+                final jobLocation = job['location'];
+
+                final miniSubtitle = '$jobTitle, $jobLocation';
+
+                return ListTile(
+                  leading: CircleAvatar(
+                    child: Text('${index + 1}'),
+                  ),
+                  title: Text(company),
+                  subtitle: Text(miniSubtitle),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: fetchJobs,
+        onPressed: () {
+          fetchJobs();
+          print('Search button pressed');
+        },
+        child: const Icon(Icons.search),
       ),
     );
   }
 
   void fetchJobs() async {
-    const url =
-        'https://serpapi.com/search?engine=google_jobs&q=software+enginieering+intern+california&hl=en&api_key=96410ae31759505c08fda22525eabf8f4865d52ce2eebb9190de4aae34e25d68';
+    print('should work!');
+    print(title);
+    final url =
+        'https://serpapi.com/search?engine=google_jobs&q=$title+$level+$location&hl=en&api_key=96410ae31759505c08fda22525eabf8f4865d52ce2eebb9190de4aae34e25d68';
     final uri = Uri.parse(url);
 
     try {
