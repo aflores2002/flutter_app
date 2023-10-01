@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_tinder_swipe/flutter_tinder_swipe.dart';
 
 class JobsScreen extends StatefulWidget {
   const JobsScreen({Key? key}) : super(key: key);
@@ -21,24 +23,6 @@ class _JobsScreenState extends State<JobsScreen> {
       appBar: AppBar(
         title: const Text('Find the perfect jobs for you!'),
       ),
-<<<<<<< HEAD
-      body: ListView.builder(
-          itemCount: jobs.length,
-          itemBuilder: (context, index) {
-            final job = jobs[index];
-            final company = job['company_name'];
-            final jobTitle = job['title'];
-            final jobLocation = job['location'];
-            //final apply_link = job['related_links']['link'];
-
-            final miniSubtitle = '$jobTitle, $jobLocation';
-            //final description = job['description'];
-            //final imageUrl = job['picture']['thumbnail'];
-
-            return ListTile(
-              leading: CircleAvatar(
-                child: Text('${index + 1}'),
-=======
       body: Column(
         children: [
           Padding(
@@ -48,7 +32,6 @@ class _JobsScreenState extends State<JobsScreen> {
                 labelText: 'Job Title',
                 hintText: 'Enter a job title',
                 // You can customize other properties of the TextField's appearance here.
->>>>>>> 5dedd78510df24fb8c5dd114239e50320163e03c
               ),
               onChanged: (value) {
                 title = value;
