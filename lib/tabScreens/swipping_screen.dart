@@ -50,23 +50,6 @@ class _SwipingScreenState extends State<SwipingScreen> {
                   child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
-                      /*
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: FadeInImage(
-                          fit: BoxFit.cover,
-                          height: 1000,
-                          width: 300,
-                          image: AssetImage(
-                            imageItems[index]['image'],
-                          ),
-                          placeholder: AssetImage(
-                            imageItems[index]['image'],
-                          ),
-                        ),
-                      ),
-                      */
-
                       Container(
                         height: 1000,
                         width: 400,

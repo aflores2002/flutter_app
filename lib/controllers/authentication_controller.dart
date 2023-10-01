@@ -15,7 +15,9 @@ class AuthenticationController extends GetxController {
   File? get imageProfile => pickedFile.value;
   XFile? imageFile;
 
-  /*pickImageFileFromGallery() async {
+  /*
+    Code to choose profile image from gallery and camera (will be implemented in the future)
+    pickImageFileFromGallery() async {
     final imageFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
 
@@ -63,7 +65,6 @@ class AuthenticationController extends GetxController {
       String country,
       String education,
       String lookingForJob,
-      //String publishedDateTime,
       String skills,
       String workExperience,
       String organizations,

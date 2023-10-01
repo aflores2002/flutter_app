@@ -27,18 +27,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController lookingForJobTextEditingController =
       TextEditingController();
 
-  // skills ???
+  // skills
   TextEditingController skillsTextEditingController = TextEditingController();
 
-  // experience ???
+  // experience
   TextEditingController workExperienceTextEditingController =
       TextEditingController();
   TextEditingController organizationsTextEditingController =
       TextEditingController();
-  // TextEditingController projectsTextEditingController =
-  // TextEditingController();
 
-  // interests ???
+  // interests
   TextEditingController interestsTextEditingController =
       TextEditingController();
 
@@ -88,7 +86,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
               // selects image circle avatar
               // if image is not captured displau CircleAvatar
-              // Else display captured image
+              // else display captured image
               authenticationController.imageFile == null
                   ? const CircleAvatar(
                       radius: 80,
@@ -112,47 +110,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ),
                           )),
                     ),
-
-              /* Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () async {
-                      await authenticationController.pickImageFileFromGallery();
-
-                      setState(() {
-                        authenticationController.imageFile;
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.image_outlined,
-                      color: Colors.grey,
-                      size: 30,
-                    ),
-                  ),
-
-                  // space
-                  const SizedBox(
-                    width: 10,
-                  ),
-
-                  IconButton(
-                    onPressed: () async {
-                      await authenticationController
-                          .captureImageFromPhoneCamera();
-
-                      setState(() {
-                        authenticationController.imageFile;
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.camera_alt_outlined,
-                      color: Colors.grey,
-                      size: 30,
-                    ),
-                  ),
-                ],
-              ), */
 
               // space
               const SizedBox(
@@ -465,7 +422,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: InkWell(
                   onTap: () async {
                     // trim removes extra spaces that may be inputted
-                    //if (authenticationController != null) {}
                     if (nameTextEditingController.text.trim().isNotEmpty &&
                         emailTextEditingController.text.trim().isNotEmpty &&
                         passwordTextEditingController.text.trim().isNotEmpty &&
